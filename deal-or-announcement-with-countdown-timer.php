@@ -5,13 +5,20 @@ Plugin Name: deal or announcement with countdown timer
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 Description:  This plug-in will display the announcement or deal or offer with countdown timer.
 Author: Gopi.R
-Version: 7.0
+Version: 7.1
 Author URI: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 Donate link: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 global $wpdb, $wp_version;
 define("WP_G_Countdown_TABLE", $wpdb->prefix . "gCountdown");
+
+function deal() 
+{
+	deal_or_announcement_with_countdown_timer_show();
+}
 
 function deal_or_announcement_with_countdown_timer_show() 
 {
@@ -29,7 +36,7 @@ function deal_or_announcement_with_countdown_timer_show()
 		if ( !empty($data)) $gCountzoon = $data->gCountzoon;
 		if ( !empty($data)) $gCountdisplay = $data->gCountdisplay;
 		
-		$displayformats  = "<div><span style='width:25px;display:inline-block;'>%%D%%</span><span style='width:25px;display:inline-block;'>%%H%%</span><span style='width:25px;display:inline-block;'>%%M%%</span><span style='width:25px;display:inline-block;'>%%S%%</span></div><div><span style='width:25px;display:inline-block;'>Day</span><span style='width:25px;display:inline-block;'>Hrs</span><span style='width:25px;display:inline-block;'>Min</span><span style='width:25px;display:inline-block;'>Sec</span></div>"
+		$displayformats  = "<div><span style='width:35px;display:inline-block;'>%%D%%</span><span style='width:35px;display:inline-block;'>%%H%%</span><span style='width:35px;display:inline-block;'>%%M%%</span><span style='width:35px;display:inline-block;'>%%S%%</span></div><div><span style='width:35px;display:inline-block;'>Day</span><span style='width:35px;display:inline-block;'>Hrs</span><span style='width:35px;display:inline-block;'>Min</span><span style='width:35px;display:inline-block;'>Sec</span></div>"
 		
 		?>
 		<script language="JavaScript">
@@ -78,7 +85,7 @@ function deal_or_announcement_with_countdown_timer_install()
 			
 		$sSql = "INSERT INTO `". WP_G_Countdown_TABLE . "` (`gCount` , `gCountmonth` ,`gCountdate` ,`gCountyear` ,`gCounthour` ,`gCountzoon` ,`gCountdisplay`) VALUES ";
 		$sSql = $sSql . "('gopiplus.com In this website you can find lots of useful WordPress plugin and Joomla modules. all plugins are available with detailed help documents and video tutorials. Email newsletter is the one of most downloaded plugin from gopiplus. Now free constant contact wp plugin available to download.', ";
-		$sSql = $sSql . "'12', '30', '2012', '12', 'PM', 'YES');";
+		$sSql = $sSql . "'12', '30', '2013', '12', 'PM', 'YES');";
 		$wpdb->query($sSql);
 	}
 
@@ -89,6 +96,7 @@ function deal_or_announcement_with_countdown_timer_install()
 	add_option('deal_or_announcement_with_countdown_timer_text_align', 'Justify');
 	add_option('deal_or_announcement_with_countdown_timer_caption', 'This is a limited time offer..');
 }
+
 function deal_or_announcement_with_countdown_timer_widget($args) 
 {
 	extract($args);
@@ -98,6 +106,7 @@ function deal_or_announcement_with_countdown_timer_widget($args)
 	deal_or_announcement_with_countdown_timer_show();
 	echo $after_widget;
 }
+
 function deal_or_announcement_with_countdown_timer_control() 
 {
 		$deal_or_announcement_with_countdown_timer_title = get_option('deal_or_announcement_with_countdown_timer_title');
@@ -395,12 +404,7 @@ function deal_or_announcement_with_countdown_timer_widget_init()
 }
 function deal_or_announcement_with_countdown_timer_deactivation() 
 {
-	//	delete_option('deal_or_announcement_with_countdown_timer_title');
-	//	delete_option('deal_or_announcement_with_countdown_timer_timer_color');
-	//	delete_option('deal_or_announcement_with_countdown_timer_timer_align');
-	//	delete_option('deal_or_announcement_with_countdown_timer_text_color');
-	//	delete_option('deal_or_announcement_with_countdown_timer_text_align');
-	//	delete_option('deal_or_announcement_with_countdown_timer_caption');
+	// No action required
 }
 
 function deal_or_announcement_with_countdown_timer_add_to_menu() 
