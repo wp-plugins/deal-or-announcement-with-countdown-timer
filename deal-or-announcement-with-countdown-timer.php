@@ -5,7 +5,7 @@ Plugin Name: deal or announcement with countdown timer
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 Description:  This plug-in will display the announcement or deal or offer with countdown timer.
 Author: Gopi.R
-Version: 7.1
+Version: 8.0
 Author URI: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 Donate link: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 License: GPLv2 or later
@@ -84,8 +84,8 @@ function deal_or_announcement_with_countdown_timer_install()
 			");
 			
 		$sSql = "INSERT INTO `". WP_G_Countdown_TABLE . "` (`gCount` , `gCountmonth` ,`gCountdate` ,`gCountyear` ,`gCounthour` ,`gCountzoon` ,`gCountdisplay`) VALUES ";
-		$sSql = $sSql . "('gopiplus.com In this website you can find lots of useful WordPress plugin and Joomla modules. all plugins are available with detailed help documents and video tutorials. Email newsletter is the one of most downloaded plugin from gopiplus. Now free constant contact wp plugin available to download.', ";
-		$sSql = $sSql . "'12', '30', '2013', '12', 'PM', 'YES');";
+		$sSql = $sSql . "('Lorem Ipsum is simply dummy text of the printing and typesetting industry.', ";
+		$sSql = $sSql . "'12', '25', '2014', '12', 'PM', 'YES');";
 		$wpdb->query($sSql);
 	}
 
@@ -383,7 +383,7 @@ function widget_deal_or_announcement_with_countdown_timer_management()
         <?php } ?>
       </table>
     </form>
-    <br />Check official website for more details <a target="_blank" href='http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/'>Click here</a><br />
+    <br />Check official website for more details <a target="_blank" href="http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/">Click here</a><br />
   </div>
 </div>
 <?php
@@ -402,6 +402,7 @@ function deal_or_announcement_with_countdown_timer_widget_init()
 		wp_register_widget_control('Deal with countdown', array('Deal with countdown', 'widgets'), 'deal_or_announcement_with_countdown_timer_control', 'width=400');
 	} 
 }
+
 function deal_or_announcement_with_countdown_timer_deactivation() 
 {
 	// No action required

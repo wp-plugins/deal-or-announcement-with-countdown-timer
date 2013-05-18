@@ -3,9 +3,9 @@ Contributors: www.gopiplus.com, gopiplus
 Donate link: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 Author URI: http://www.gopiplus.com/
 Tags: deal, announcement, countdown, timer, widget, Offers
-Requires at least: 3.0
-Tested up to: 3.5
-Stable tag: 7.1
+Requires at least: 3.4
+Tested up to: 3.6
+Stable tag: 8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -59,6 +59,9 @@ Deal or announcement with countdown WordPress plugin will display the announceme
 
 == Upgrade Notice ==
 
+= 8.0 =
+Tested up to 3.6
+
 = 7.1 =
 Tested up to 3.5
 
@@ -84,6 +87,9 @@ Date option enabled
 First version
 
 == Changelog ==
+
+= 8.0 =
+Tested up to 3.6
 
 = 7.1 =
 Tested up to 3.5
