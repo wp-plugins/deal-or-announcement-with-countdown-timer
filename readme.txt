@@ -5,7 +5,7 @@ Author URI: http://www.gopiplus.com/
 Tags: deal, announcement, countdown, timer, widget, Offers
 Requires at least: 3.4
 Tested up to: 3.6
-Stable tag: 8.0
+Stable tag: 8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -59,6 +59,10 @@ Deal or announcement with countdown WordPress plugin will display the announceme
 
 == Upgrade Notice ==
 
+= 8.1 =
+New admin layout.
+Added some security feature.
+
 = 8.0 =
 Tested up to 3.6
 
@@ -87,6 +91,10 @@ Date option enabled
 First version
 
 == Changelog ==
+
+= 8.1 =
+New admin layout.
+Added some security feature.
 
 = 8.0 =
 Tested up to 3.6

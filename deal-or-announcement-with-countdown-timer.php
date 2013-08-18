@@ -5,7 +5,7 @@ Plugin Name: deal or announcement with countdown timer
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 Description:  This plug-in will display the announcement or deal or offer with countdown timer.
 Author: Gopi.R
-Version: 8.0
+Version: 8.1
 Author URI: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 Donate link: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 License: GPLv2 or later
@@ -14,6 +14,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 global $wpdb, $wp_version;
 define("WP_G_Countdown_TABLE", $wpdb->prefix . "gCountdown");
+define("WP_gCountUNIQUE_NAME", "deal-with-countdown");
+define("WP_gCountTITLE", "Deal with countdown timer");
+define('WP_gCountFAV', 'http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/');
+define('WP_gCountLINK', 'Check official website for more information <a target="_blank" href="'.WP_gCountFAV.'">click here</a>');
 
 function deal() 
 {
@@ -160,234 +164,22 @@ function deal_or_announcement_with_countdown_timer_control()
 function widget_deal_or_announcement_with_countdown_timer_management() 
 {
 	global $wpdb;
-	?>
-<div class="wrap">
-  <?php
-    $mainurl = get_option('siteurl')."/wp-admin/options-general.php?page=deal-or-announcement-with-countdown-timer/deal-or-announcement-with-countdown-timer.php";
-
-    $DID=@$_GET["DID"];
-    $AC=@$_GET["AC"];
-    $submittext = "Insert Message";
-
-	if($AC <> "DEL" and trim(@$_POST['gCount']) <>"")
-    {
-			if($_POST['gCountid'] == "" )
-			{
-					$sql = "insert into ".WP_G_Countdown_TABLE.""
-					. " set `gCount` = '" . mysql_real_escape_string(trim($_POST['gCount']))
-					. "', `gCountmonth` = '" . $_POST['gCountmonth']
-					. "', `gCountdate` = '" . $_POST['gCountdate']
-					. "', `gCountyear` = '" . $_POST['gCountyear']
-					. "', `gCounthour` = '" . $_POST['gCounthour']
-					. "', `gCountzoon` = '" . $_POST['gCountzoon']
-					. "', `gCountdisplay` = '" . $_POST['gCountdisplay']
-					. "'";	
-			}
-			else
-			{
-					$sql = "update ".WP_G_Countdown_TABLE.""
-					. " set `gCount` = '" . mysql_real_escape_string(trim($_POST['gCount']))
-					. "', `gCountmonth` = '" . $_POST['gCountmonth']
-					. "', `gCountdate` = '" . $_POST['gCountdate']
-					. "', `gCountyear` = '" . $_POST['gCountyear']
-					. "', `gCounthour` = '" . $_POST['gCounthour']
-					. "', `gCountzoon` = '" . $_POST['gCountzoon']
-					. "', `gCountdisplay` = '" . $_POST['gCountdisplay']
-					. "' where `gCountid` = '" . $_POST['gCountid'] 
-					. "'";	
-			}
-			
-			if(trim($_POST['gCountdisplay'])=="YES")
-			{
-				$wpdb->get_results("update ".WP_G_Countdown_TABLE." set gCountdisplay='NO'");
-			}
-			$wpdb->get_results($sql);
-    }
-    
-    if($AC=="DEL" && $DID > 0)
-    {
-        $wpdb->get_results("delete from ".WP_G_Countdown_TABLE." where gCountid=".$DID);
-    }
-    
-    if($DID<>"" and $AC <> "DEL")
-    {
-        //select query
-        $data = $wpdb->get_results("select * from ".WP_G_Countdown_TABLE." where gCountid=$DID limit 1");
-    
-        //bad feedback
-        if ( empty($data) ) 
-        {
-           echo "<div id='message' class='error'><p>No data found on count down message, please create!</p></div>";
-            return;
-        }
-        
-        $data = $data[0];
-        
-        //encode strings
-        if ( !empty($data) ) $gCountid_x = htmlspecialchars(stripslashes($data->gCountid)); 
-        if ( !empty($data) ) $gCount_x = htmlspecialchars(stripslashes($data->gCount));
-        if ( !empty($data) ) $gCountmonth_x = htmlspecialchars(stripslashes($data->gCountmonth));
-        if ( !empty($data) ) $gCountdate_x = htmlspecialchars(stripslashes($data->gCountdate));
-        if ( !empty($data) ) $gCountyear_x = htmlspecialchars(stripslashes($data->gCountyear));
-        if ( !empty($data) ) $gCounthour_x = htmlspecialchars(stripslashes($data->gCounthour));
-        if ( !empty($data) ) $gCountzoon_x = htmlspecialchars(stripslashes($data->gCountzoon));
-        if ( !empty($data) ) $gCountdisplay_x = htmlspecialchars(stripslashes($data->gCountdisplay));
-        
-        $submittext = "Update Message";
-    }
-    ?>
-  <h2>Deal with Countdown Timer</h2>
-  <script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/deal-or-announcement-with-countdown-timer/gCountdownform.js"></script>
-  <form name="form1" method="post" action="<?php echo @$mainurl; ?>"  onSubmit="return gCountdownform()">
-    <table width="100%">
-      <tr>
-        <td align="left" valign="middle">Enter the message:</td>
-      </tr>
-      <tr>
-        <td align="left" valign="middle"><textarea name="gCount" cols="100" rows="10" id="gCount"><?php echo @$gCount_x; ?></textarea></td>
-      </tr>
-      <tr>
-        <td align="left" valign="middle">Select the expiration:</td>
-      </tr>
-      <tr>
-        <td align="left" valign="middle"><select name="gCountmonth" id="gCountmonth">
-            <option value="">--Month--</option>
-            <option value='1' <?php if(@$gCountmonth_x==1) { echo 'selected' ; } ?>>January</option>
-            <option value='2' <?php if(@$gCountmonth_x==2) { echo 'selected' ; } ?>>February</option>
-            <option value='3' <?php if(@$gCountmonth_x==3) { echo 'selected' ; } ?>>March</option>
-            <option value='4' <?php if(@$gCountmonth_x==4) { echo 'selected' ; } ?>>April</option>
-            <option value='5' <?php if(@$gCountmonth_x==5) { echo 'selected' ; } ?>>May</option>
-            <option value='6' <?php if(@$gCountmonth_x==6) { echo 'selected' ; } ?>>June</option>
-            <option value='7' <?php if(@$gCountmonth_x==7) { echo 'selected' ; } ?>>July</option>
-            <option value='8' <?php if(@$gCountmonth_x==8) { echo 'selected' ; } ?>>August</option>
-            <option value='9' <?php if(@$gCountmonth_x==9) { echo 'selected' ; } ?>>September</option>
-            <option value='10' <?php if(@$gCountmonth_x==10) { echo 'selected' ; } ?>>October</option>
-            <option value='11' <?php if(@$gCountmonth_x==11) { echo 'selected' ; } ?>>November</option>
-            <option value='12' <?php if(@$gCountmonth_x==12) { echo 'selected' ; } ?>>December</option>
-          </select>
-          <select name="gCountdate" id="gCountdate">
-            <option value="">--Date--</option>
-            <?php 
-                for(@$dd=1;@$dd<=31;@$dd++)
-                {
-                    ?>
-            <option value='<?php echo @$dd?>' <?php if(@$gCountdate_x==$dd) { echo 'selected' ; } ?>><?php echo @$dd?></option>
-            <?php
-                }
-                ?>
-          </select>
-          <select name="gCountyear" id="gCountyear">
-            <option value="">--Year--</option>
-            <?php 
-                for(@$yy=2008;@$yy<=2015;@$yy++)
-                {
-                    ?>
-            <option value='<?php echo $yy?>' <?php if(@$gCountyear_x==$yy) { echo 'selected' ; } ?>><?php echo @$yy?></option>
-            <?php
-                }
-                ?>
-          </select>
-          <select name="gCounthour" id="gCounthour">
-            <option value="">--Time--</option>
-            <?php 
-                for(@$hh=1;@$hh<=12;@$hh++)
-                {
-                    ?>
-            <option value='<?php echo @$hh?>' <?php if(@$gCounthour_x==$hh) { echo 'selected' ; } ?>><?php echo @$hh?></option>
-            <?php
-                }
-                ?>
-          </select>
-          <select name="gCountzoon" id="gCountzoon">
-            <option value="">--AM/PM--</option>
-            <option value="AM" <?php if(@$gCountzoon_x=='AM') { echo 'selected' ; } ?>>AM</option>
-            <option value="PM" <?php if(@$gCountzoon_x=='PM') { echo 'selected' ; } ?>>PM</option>
-          </select></td>
-      </tr>
-      <tr>
-        <td align="left" valign="middle">Display Status:</td>
-      </tr>
-      <tr>
-        <td align="left" valign="middle"><select name="gCountdisplay" id="gCountdisplay">
-          <option value="">Select</option>
-          <option value='YES' <?php if(@$gCountdisplay_x=='YES') { echo 'selected' ; } ?>>Yes</option>
-          <option value='NO' <?php if(@$gCountdisplay_x=='NO') { echo 'selected' ; } ?>>No</option>
-        </select></td>
-      </tr>
-      <tr>
-        <td align="left" valign="middle" style="height:30px;">
-		<input name="publish" type="submit" class="button-primary" lang="publish" value="<?php echo @$submittext?>" />
-		
-		<input name="Help" lang="publish" class="button-primary" onclick="window.open('http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/');" value="Help" type="button" />
-		</td>
-      </tr>
-      <input name="gCountid" id="gCountid" type="hidden" value="<?php echo @$gCountid_x; ?>">
-    </table>
-  </form>
-  <div class="tool-box">
-    <?php
-	$data = $wpdb->get_results("select * from ".WP_G_Countdown_TABLE." order by gCountid desc");
-	if ( empty($data) ) 
-	{ 
-		echo "<div id='message' class='error'>No data found, please create using below form!</div>";
-		return;
-	}
-	?>
-    <script language="javascript" type="text/javascript">
-	function _dealdelete(id)
+	$current_page = isset($_GET['ac']) ? $_GET['ac'] : '';
+	switch($current_page)
 	{
-		if(confirm("Do you want to delete this record?"))
-		{
-			document.frm.action="options-general.php?page=deal-or-announcement-with-countdown-timer/deal-or-announcement-with-countdown-timer.php&AC=DEL&DID="+id;
-			document.frm.submit();
-		}
-	}	
-	</script>
-    <form name="frm" method="post">
-      <table width="100%" class="widefat" id="straymanage">
-        <thead>
-          <tr>
-            <th align="left" scope="col">ID
-              </td>
-            <th align="left" scope="col">Message
-              </td>
-            <th align="left" scope="col">Expiration
-              </td>
-            <th align="left" scope="col">Display
-              </td>
-            <th align="left" scope="col">Action
-              </td>
-          </tr>
-        </thead>
-        <?php 
-        $i = 0;
-        foreach ( $data as $data ) { 
-		if($data->gCountdisplay=='YES') { $displayisthere="True"; }
-        ?>
-        <tbody>
-          <tr class="<?php if ($i&1) { echo'alternate'; } else { echo ''; }?>">
-            <td align="left" valign="middle"><?php echo(stripslashes($data->gCountid)); ?></td>
-            <td align="left" valign="middle"><?php echo(stripslashes($data->gCount)); ?></td>
-            <td align="left" valign="middle"><?php 
-				echo($data->gCountmonth."/".$data->gCountdate."/".$data->gCountyear."<br>".$data->gCounthour.":00 ".$data->gCountzoon); 
-				?></td>
-            <td align="left" valign="middle"><?php echo(stripslashes($data->gCountdisplay)); ?></td>
-            <td align="left" valign="middle"><a href="options-general.php?page=deal-or-announcement-with-countdown-timer/deal-or-announcement-with-countdown-timer.php&DID=<?php echo($data->gCountid); ?>">Edit</a> &nbsp; <a onClick="javascript:_dealdelete('<?php echo($data->gCountid); ?>')" href="javascript:void(0);">Delete</a></td>
-          </tr>
-        </tbody>
-        <?php $i = $i+1; } ?>
-        <?php if($displayisthere<>"True") { ?>
-        <tr>
-          <td colspan="5" align="center" style="color:#FF0000" valign="middle">No Announcement available with display status 'Yes'! So in front end it will show 'No data available in announcement!' </td>
-        </tr>
-        <?php } ?>
-      </table>
-    </form>
-    <br />Check official website for more details <a target="_blank" href="http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/">Click here</a><br />
-  </div>
-</div>
-<?php
-
+		case 'edit':
+			include('pages/content-management-edit.php');
+			break;
+		case 'add':
+			include('pages/content-management-add.php');
+			break;
+		case 'set':
+			include('pages/widget-setting.php');
+			break;
+		default:
+			include('pages/content-management-show.php');
+			break;
+	}
 }
 
 function deal_or_announcement_with_countdown_timer_widget_init() 
@@ -410,7 +202,7 @@ function deal_or_announcement_with_countdown_timer_deactivation()
 
 function deal_or_announcement_with_countdown_timer_add_to_menu() 
 {
-	add_options_page('Deal with countdown', 'Deal with countdown', 'manage_options', __FILE__, 'widget_deal_or_announcement_with_countdown_timer_management' );
+	add_options_page('Deal with countdown', 'Deal with countdown', 'manage_options', 'deal-with-countdown', 'widget_deal_or_announcement_with_countdown_timer_management' );
 }
 
 if (is_admin()) 
