@@ -13,7 +13,7 @@ $result = $wpdb->get_var($sSql);
 
 if ($result != '1')
 {
-	?><div class="error fade"><p><strong>Oops, selected details doesn't exist.</strong></p></div><?php
+	?><div class="error fade"><p><strong><?php _e('Oops, selected details doesnt exist.', 'deal-with-countdown'); ?></strong></p></div><?php
 }
 else
 {
@@ -53,7 +53,7 @@ if (isset($_POST['gCountform_submit']) && $_POST['gCountform_submit'] == 'yes')
 	$form['gCount'] = isset($_POST['gCount']) ? $_POST['gCount'] : '';
 	if ($form['gCount'] == '')
 	{
-		$gCounterrors[] = __('Please enter the announcement.', WP_gCountUNIQUE_NAME);
+		$gCounterrors[] = __('Please enter the announcement.', 'deal-with-countdown');
 		$gCounterror_found = TRUE;
 	}
 
@@ -82,7 +82,7 @@ if (isset($_POST['gCountform_submit']) && $_POST['gCountform_submit'] == 'yes')
 			);
 		$wpdb->query($sSql);
 		
-		$gCountsuccess = 'Details was successfully updated.';
+		$gCountsuccess = __('Details was successfully updated.', 'deal-with-countdown');
 	}
 }
 
@@ -98,31 +98,32 @@ if ($gCounterror_found == FALSE && strlen($gCountsuccess) > 0)
 {
 	?>
 	<div class="updated fade">
-		<p><strong><?php echo $gCountsuccess; ?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=deal-with-countdown">Click here</a> to view the details</strong></p>
+		<p><strong><?php echo $gCountsuccess; ?> 
+		<a href="<?php echo WP_deal_ADMIN_URL; ?>"><?php _e('Click here to view the details', 'deal-with-countdown'); ?></a></strong></p>
 	</div>
 	<?php
 }
 ?>
-<script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/deal-or-announcement-with-countdown-timer/pages/gCountdownform.js"></script>
+<script language="JavaScript" src="<?php echo WP_deal_PLUGIN_URL; ?>/pages/gCountdownform.js"></script>
 <div class="form-wrap">
 	<div id="icon-edit" class="icon32 icon32-posts-post"><br></div>
-	<h2><?php echo WP_gCountTITLE; ?></h2>
+	<h2><?php _e('Deal with countdown', 'deal-with-countdown'); ?></h2>
 	<form name="gCountform" method="post" action="#" onsubmit="return gCountsubmit()"  >
-      <h3>Update details</h3>
+      <h3><?php _e('Update details', 'deal-with-countdown'); ?></h3>
 	  
-	  <label for="tag-txt">Announcement</label>
+	  <label for="tag-txt"><?php _e('Announcement', 'deal-with-countdown'); ?></label>
       <textarea name="gCount" id="gCount" cols="100" rows="6"><?php echo esc_html(stripslashes($form['gCount'])); ?></textarea>
-      <p>Please enter your announcement text.</p>
+      <p><?php _e('Please enter your announcement text.', 'deal-with-countdown'); ?></p>
       
-      <label for="tag-txt">Display status</label>
+      <label for="tag-txt"><?php _e('Display status', 'deal-with-countdown'); ?></label>
       <select name="gCountdisplay" id="gCountdisplay">
         <option value=''>Select</option>
 		<option value='YES' <?php if($form['gCountdisplay']=='YES') { echo 'selected="selected"' ; } ?>>Yes</option>
         <option value='NO' <?php if($form['gCountdisplay']=='NO') { echo 'selected="selected"' ; } ?>>No</option>
       </select>
-      <p>Do you want to show this announcement?</p>
+      <p><?php _e('Do you want to show this announcement?', 'deal-with-countdown'); ?></p>
 	  
-	  <label for="tag-txt">Expiration</label>
+	  <label for="tag-txt"><?php _e('Expiration', 'deal-with-countdown'); ?></label>
       <select name="gCountmonth" id="gCountmonth">
 		<option value="">--Month--</option>
 		<option value='1' <?php if($form['gCountmonth']=='1') { echo 'selected="selected"' ; } ?>>January</option>
@@ -188,17 +189,20 @@ if ($gCounterror_found == FALSE && strlen($gCountsuccess) > 0)
 		<option value="AM" <?php if($form['gCountzoon']=='AM') { echo 'selected="selected"' ; } ?>>AM</option>
 		<option value="PM" <?php if($form['gCountzoon']=='PM') { echo 'selected="selected"' ; } ?>>PM</option>
 	  </select>
-      <p>Please select your expiration date.</p>
+      <p><?php _e('Please select your expiration date.', 'deal-with-countdown'); ?></p>
 	  
       <input name="gCountid" id="gCountid" type="hidden" value="">
       <input type="hidden" name="gCountform_submit" value="yes"/>
       <p style="padding-top:8px;padding-bottom:8px;">
-        <input name="publish" lang="publish" class="button" value="Submit" type="submit" />
-        <input name="publish" lang="publish" class="button" onclick="gCountredirect()" value="Cancel" type="button" />
-        <input name="Help" lang="publish" class="button" onclick="gCounthelp()" value="Help" type="button" />
+        <input name="publish" lang="publish" class="button" value="<?php _e('Submit', 'deal-with-countdown'); ?>" type="submit" />
+        <input name="publish" lang="publish" class="button" onclick="gCountredirect()" value="<?php _e('Cancel', 'deal-with-countdown'); ?>" type="button" />
+        <input name="Help" lang="publish" class="button" onclick="gCounthelp()" value="<?php _e('Help', 'deal-with-countdown'); ?>" type="button" />
       </p>
 	  <?php wp_nonce_field('gCountform_edit'); ?>
     </form>
 </div>
-<p class="description"><?php echo WP_gCountLINK; ?></p>
+<p class="description">
+	<?php _e('Check official website for more information', 'deal-with-countdown'); ?>
+	<a target="_blank" href="<?php echo WP_deal_FAV; ?>"><?php _e('click here', 'deal-with-countdown'); ?></a>
+</p>
 </div>

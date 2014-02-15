@@ -4,8 +4,8 @@ Donate link: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-c
 Author URI: http://www.gopiplus.com/
 Tags: deal, announcement, countdown, timer, widget, Offers
 Requires at least: 3.4
-Tested up to: 3.6
-Stable tag: 8.1
+Tested up to: 3.8
+Stable tag: 8.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -51,13 +51,18 @@ Deal or announcement with countdown WordPress plugin will display the announceme
 
 == Screenshots ==
 
-1. Admin add/edit/delete announcement or deal management area. http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
+1. Front Screen. http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 
-2. Admin widget management. http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
+2. Admin Screen. http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 
-3. Front end. http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
+3. Widget Screen. http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 
 == Upgrade Notice ==
+
+= 8.2 =
+1. Tested up to 3.8
+2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
+Plugin *.po file (deal-with-countdown.po) available in the languages folder.
 
 = 8.1 =
 New admin layout.
@@ -91,6 +96,11 @@ Date option enabled
 First version
 
 == Changelog ==
+
+= 8.2 =
+1. Tested up to 3.8
+2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
+Plugin *.po file (deal-with-countdown.po) available in the languages folder.
 
 = 8.1 =
 New admin layout.

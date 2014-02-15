@@ -1,11 +1,10 @@
 <?php
-
 /*
 Plugin Name: deal or announcement with countdown timer
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 Description:  This plug-in will display the announcement or deal or offer with countdown timer.
 Author: Gopi.R
-Version: 8.1
+Version: 8.2
 Author URI: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 Donate link: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 License: GPLv2 or later
@@ -14,10 +13,22 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 global $wpdb, $wp_version;
 define("WP_G_Countdown_TABLE", $wpdb->prefix . "gCountdown");
-define("WP_gCountUNIQUE_NAME", "deal-with-countdown");
-define("WP_gCountTITLE", "Deal with countdown timer");
-define('WP_gCountFAV', 'http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/');
-define('WP_gCountLINK', 'Check official website for more information <a target="_blank" href="'.WP_gCountFAV.'">click here</a>');
+define('WP_deal_FAV', 'http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/');
+
+if ( ! defined( 'WP_deal_PLUGIN_BASENAME' ) )
+	define( 'WP_deal_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+
+if ( ! defined( 'WP_deal_PLUGIN_NAME' ) )
+	define( 'WP_deal_PLUGIN_NAME', trim( dirname( WP_deal_PLUGIN_BASENAME ), '/' ) );
+
+if ( ! defined( 'WP_deal_PLUGIN_DIR' ) )
+	define( 'WP_deal_PLUGIN_DIR', WP_PLUGIN_DIR . '/' . WP_deal_PLUGIN_NAME );
+
+if ( ! defined( 'WP_deal_PLUGIN_URL' ) )
+	define( 'WP_deal_PLUGIN_URL', WP_PLUGIN_URL . '/' . WP_deal_PLUGIN_NAME );
+	
+if ( ! defined( 'WP_deal_ADMIN_URL' ) )
+	define( 'WP_deal_ADMIN_URL', get_option('siteurl') . '/wp-admin/options-general.php?page=deal-with-countdown' );
 
 function deal() 
 {
@@ -58,7 +69,7 @@ function deal_or_announcement_with_countdown_timer_show()
         <div align="<?php echo get_option('deal_or_announcement_with_countdown_timer_timer_align'); ?>" style="padding:10px 0px 3px 0px;color:<?php echo get_option('deal_or_announcement_with_countdown_timer_timer_color')?>"><?php echo get_option('deal_or_announcement_with_countdown_timer_caption'); ?></div>
         <?php } ?>
         <div class="announcementtime" id="announcementtime" style="padding:0px 0px 10px 0px;" align="<?php echo get_option('deal_or_announcement_with_countdown_timer_timer_align'); ?>"> 
-          <script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/deal-or-announcement-with-countdown-timer/gCountdown.js"></script> 
+          <script language="JavaScript" src="<?php echo WP_deal_PLUGIN_URL; ?>/gCountdown.js"></script> 
         </div>
         <?php
 	}
@@ -84,7 +95,7 @@ function deal_or_announcement_with_countdown_timer_install()
 			  `gCounthour` int(11) NOT NULL default '0',
 			  `gCountzoon` varchar(5) NOT NULL default '',
 			  `gCountdisplay` varchar(5) NOT NULL default '',
-  			  PRIMARY KEY  (`gCountid`) )
+  			  PRIMARY KEY  (`gCountid`) ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 			");
 			
 		$sSql = "INSERT INTO `". WP_G_Countdown_TABLE . "` (`gCount` , `gCountmonth` ,`gCountdate` ,`gCountyear` ,`gCounthour` ,`gCountzoon` ,`gCountdisplay`) VALUES ";
@@ -156,6 +167,8 @@ function deal_or_announcement_with_countdown_timer_control()
 		echo $deal_or_announcement_with_countdown_timer_text_align . '" name="deal_or_announcement_with_countdown_timer_text_align" id="deal_or_announcement_with_countdown_timer_text_align" /></p>';
 
 		echo 'Alignment : Left / Right / Center / Justify';
+		
+		echo '<br><br>';
 
 		echo '<input type="hidden" id="deal_or_announcement_with_countdown_timer_submit" name="deal_or_announcement_with_countdown_timer_submit" value="1" />';
 		
@@ -186,12 +199,14 @@ function deal_or_announcement_with_countdown_timer_widget_init()
 {
 	if(function_exists('wp_register_sidebar_widget')) 	
 	{
-		wp_register_sidebar_widget('Deal with countdown', 'Deal with countdown', 'deal_or_announcement_with_countdown_timer_widget');
+		wp_register_sidebar_widget( __('Deal with countdown', 'deal-with-countdown'), 
+				__('Deal with countdown', 'deal-with-countdown'), 'deal_or_announcement_with_countdown_timer_widget');
 	}
 	
 	if(function_exists('wp_register_widget_control')) 	
 	{
-		wp_register_widget_control('Deal with countdown', array('Deal with countdown', 'widgets'), 'deal_or_announcement_with_countdown_timer_control', 'width=400');
+		wp_register_widget_control( __('Deal with countdown', 'deal-with-countdown'), 
+				array( __('Deal with countdown', 'deal-with-countdown'), 'widgets'), 'deal_or_announcement_with_countdown_timer_control', 'width=400');
 	} 
 }
 
@@ -202,7 +217,8 @@ function deal_or_announcement_with_countdown_timer_deactivation()
 
 function deal_or_announcement_with_countdown_timer_add_to_menu() 
 {
-	add_options_page('Deal with countdown', 'Deal with countdown', 'manage_options', 'deal-with-countdown', 'widget_deal_or_announcement_with_countdown_timer_management' );
+	add_options_page( __('Deal with countdown', 'deal-with-countdown'), __('Deal with countdown', 'deal-with-countdown'), 
+				'manage_options', 'deal-with-countdown', 'widget_deal_or_announcement_with_countdown_timer_management' );
 }
 
 if (is_admin()) 
@@ -210,6 +226,12 @@ if (is_admin())
 	add_action('admin_menu', 'deal_or_announcement_with_countdown_timer_add_to_menu');
 }
 
+function deal_or_announcement_with_countdown_timer_textdomain() 
+{
+	  load_plugin_textdomain( 'deal-with-countdown', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+
+add_action('plugins_loaded', 'deal_or_announcement_with_countdown_timer_textdomain');
 add_action("plugins_loaded", "deal_or_announcement_with_countdown_timer_widget_init");
 register_activation_hook(__FILE__, 'deal_or_announcement_with_countdown_timer_install');
 register_deactivation_hook(__FILE__, 'deal_or_announcement_with_countdown_timer_deactivation');

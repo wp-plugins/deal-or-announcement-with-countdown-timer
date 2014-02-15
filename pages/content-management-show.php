@@ -18,7 +18,7 @@ if (isset($_POST['frm_gCountdisplay']) && $_POST['frm_gCountdisplay'] == 'yes')
 	
 	if ($result != '1')
 	{
-		?><div class="error fade"><p><strong>Oops, selected details doesn't exist (1).</strong></p></div><?php
+		?><div class="error fade"><p><strong><?php _e('Oops, selected details doesnt exist.', 'deal-with-countdown'); ?></strong></p></div><?php
 	}
 	else
 	{
@@ -36,7 +36,7 @@ if (isset($_POST['frm_gCountdisplay']) && $_POST['frm_gCountdisplay'] == 'yes')
 			
 			//	Set success message
 			$gCountsuccess_msg = TRUE;
-			$gCountsuccess = __('Selected record was successfully deleted.', WP_gCountUNIQUE_NAME);
+			$gCountsuccess = __('Selected record was successfully deleted.', 'deal-with-countdown');
 		}
 	}
 	
@@ -48,7 +48,8 @@ if (isset($_POST['frm_gCountdisplay']) && $_POST['frm_gCountdisplay'] == 'yes')
 ?>
 <div class="wrap">
   <div id="icon-edit" class="icon32 icon32-posts-post"></div>
-    <h2><?php echo WP_gCountTITLE; ?><a class="add-new-h2" href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=deal-with-countdown&amp;ac=add">Add New</a></h2>
+    <h2><?php _e('Deal with countdown', 'deal-with-countdown'); ?>
+	<a class="add-new-h2" href="<?php echo WP_deal_ADMIN_URL; ?>&amp;ac=add"><?php _e('Add New', 'deal-with-countdown'); ?></a></h2>
     <div class="tool-box">
 	<?php
 		$pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
@@ -63,25 +64,25 @@ if (isset($_POST['frm_gCountdisplay']) && $_POST['frm_gCountdisplay'] == 'yes')
 		$myData = array();
 		$myData = $wpdb->get_results($sSql, ARRAY_A);
 		?>
-		<script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/deal-or-announcement-with-countdown-timer/pages/gCountdownform.js"></script>
+		<script language="JavaScript" src="<?php echo WP_deal_PLUGIN_URL; ?>/pages/gCountdownform.js"></script>
 		<form name="frm_gCountdisplay" method="post">
       <table width="100%" class="widefat" id="straymanage">
         <thead>
           <tr>
             <th class="check-column" scope="col"><input type="checkbox" name="gCountgroup_item[]" /></th>
-			<th scope="col">Announcement</th>
-            <th scope="col">Expiration</th>
-			<th scope="col">Display</th>
-			<th scope="col">Id</th>
+			<th scope="col"><?php _e('Announcement', 'deal-with-countdown'); ?></th>
+            <th scope="col"><?php _e('Expiration', 'deal-with-countdown'); ?></th>
+			<th scope="col"><?php _e('Display', 'deal-with-countdown'); ?></th>
+			<th scope="col"><?php _e('Id', 'deal-with-countdown'); ?></th>
           </tr>
         </thead>
 		<tfoot>
           <tr>
             <th class="check-column" scope="col"><input type="checkbox" name="gCountgroup_item[]" /></th>
-			<th scope="col">Announcement</th>
-            <th scope="col">Expiration</th>
-			<th scope="col">Display</th>
-			<th scope="col">Id</th>
+			<th scope="col"><?php _e('Announcement', 'deal-with-countdown'); ?></th>
+            <th scope="col"><?php _e('Expiration', 'deal-with-countdown'); ?></th>
+			<th scope="col"><?php _e('Display', 'deal-with-countdown'); ?></th>
+			<th scope="col"><?php _e('Id', 'deal-with-countdown'); ?></th>
           </tr>
         </tfoot>
 		<tbody>
@@ -96,8 +97,8 @@ if (isset($_POST['frm_gCountdisplay']) && $_POST['frm_gCountdisplay'] == 'yes')
 						<td align="left"><input type="checkbox" value="<?php echo $data['gCountid']; ?>" name="gCountgroup_item[]"></td>
 						<td><?php echo stripslashes($data['gCount']); ?>
 						<div class="row-actions">
-							<span class="edit"><a title="Edit" href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=deal-with-countdown&amp;ac=edit&amp;did=<?php echo $data['gCountid']; ?>">Edit</a> | </span>
-							<span class="trash"><a onClick="javascript:gCountdelete('<?php echo $data['gCountid']; ?>')" href="javascript:void(0);">Delete</a></span> 
+						<span class="edit"><a title="Edit" href="<?php echo WP_deal_ADMIN_URL; ?>&amp;ac=edit&amp;did=<?php echo $data['gCountid']; ?>"><?php _e('Edit', 'deal-with-countdown'); ?></a> | </span>
+						<span class="trash"><a onClick="javascript:gCountdelete('<?php echo $data['gCountid']; ?>')" href="javascript:void(0);"><?php _e('Delete', 'deal-with-countdown'); ?></a></span> 
 						</div>
 						</td>
 						<td><?php echo $data['gCountyear']."-".$data['gCountmonth']."-".$data['gCountdate']."<br>".$data['gCounthour'].":00 ".$data['gCountzoon']; ?></td>
@@ -110,7 +111,7 @@ if (isset($_POST['frm_gCountdisplay']) && $_POST['frm_gCountdisplay'] == 'yes')
 			}
 			else
 			{ 
-				?><tr><td colspan="5" align="center">No records available.</td></tr><?php 
+				?><tr><td colspan="5" align="center"><?php _e('No records available.', 'deal-with-countdown'); ?></td></tr><?php 
 			} 
 			?>
 		</tbody>
@@ -132,16 +133,19 @@ if (isset($_POST['frm_gCountdisplay']) && $_POST['frm_gCountdisplay'] == 'yes')
 		<div class="tablenav bottom">
 			<div class="tablenav-pages"><span class="pagination-links"><?php echo $page_links; ?></span></div>
 			<div class="alignleft actions" style="padding-top:8px;">
-			  <a class="button" href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=deal-with-countdown&amp;ac=add">Add New</a>
-			  <a class="button" href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=deal-with-countdown&amp;ac=set">Widget setting</a>
-			  <a class="button" target="_blank" href="<?php echo WP_gCountFAV; ?>">Help</a>
+			  <a class="button" href="<?php echo WP_deal_ADMIN_URL; ?>&amp;ac=add"><?php _e('Add New', 'deal-with-countdown'); ?></a>
+			  <a class="button" href="<?php echo WP_deal_ADMIN_URL; ?>&amp;ac=set"><?php _e('Widget Setting', 'deal-with-countdown'); ?></a>
+			  <a class="button" target="_blank" href="<?php echo WP_deal_FAV; ?>"><?php _e('Help', 'deal-with-countdown'); ?></a>
 			</div>		
 		</div>
-		<h3>Plugin configuration option</h3>
+		<h3><?php _e('Plugin configuration option', 'deal-with-countdown'); ?></h3>
 		<ol>
-			<li>Add directly in to the theme using PHP code.</li>
-			<li>Drag and drop the widget to your sidebar.</li>
+			<li><?php _e('Add directly in to the theme using PHP code.', 'deal-with-countdown'); ?></li>
+			<li><?php _e('Drag and drop the widget to your sidebar.', 'deal-with-countdown'); ?></li>
 		</ol>
-	 <p class="description"><?php echo WP_gCountLINK; ?></p>
+	<p class="description">
+		<?php _e('Check official website for more information', 'deal-with-countdown'); ?>
+		<a target="_blank" href="<?php echo WP_deal_FAV; ?>"><?php _e('click here', 'deal-with-countdown'); ?></a>
+	</p>
 	</div>
 </div>
