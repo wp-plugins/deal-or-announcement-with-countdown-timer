@@ -1,3 +1,4 @@
+<?php if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); } ?>
 <div class="wrap">
 <?php
 $did = isset($_GET['did']) ? $_GET['did'] : '0';
@@ -158,7 +159,7 @@ if ($gCounterror_found == FALSE && strlen($gCountsuccess) > 0)
 		<option value="">--Year--</option>
 		<?php
 		$select = ""; 
-		for($yy = 2013; $yy <= 2016; $yy++)
+		for($yy = 2013; $yy <= 2010; $yy++)
 		{
 			if($yy == $form['gCountyear'])
 			{

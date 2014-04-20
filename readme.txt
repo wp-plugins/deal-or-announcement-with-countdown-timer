@@ -4,12 +4,12 @@ Donate link: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-c
 Author URI: http://www.gopiplus.com/
 Tags: deal, announcement, countdown, timer, widget, Offers
 Requires at least: 3.4
-Tested up to: 3.8
-Stable tag: 8.2
+Tested up to: 3.9
+Stable tag: 8.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
-This plug-in will display the announcement or deal or offer news with countdown timer.one active deal will display at front with countdown.
+This plugin will display your announcement with countdown timer.
 
 == Description ==
 
@@ -59,6 +59,10 @@ Deal or announcement with countdown WordPress plugin will display the announceme
 
 == Upgrade Notice ==
 
+= 8.3 =
+1. Tested up to 3.9
+2. Restricted direct page access.
+
 = 8.2 =
 1. Tested up to 3.8
 2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
@@ -96,6 +100,10 @@ Date option enabled
 First version
 
 == Changelog ==
+
+= 8.3 =
+1. Tested up to 3.9
+2. Restricted direct page access.
 
 = 8.2 =
 1. Tested up to 3.8

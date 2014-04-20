@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: deal or announcement with countdown timer\n"
-"POT-Creation-Date: 2014-02-15 12:25+0800\n"
-"PO-Revision-Date: 2014-02-15 12:25+0800\n"
+"POT-Creation-Date: 2014-04-20 01:28+0800\n"
+"PO-Revision-Date: 2014-04-20 01:28+0800\n"
 "Last-Translator: \n"
 "Language-Team: www.gopiplus.com <www.gopiplus.com>\n"
 "MIME-Version: 1.0\n"
@@ -13,217 +13,217 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../deal-or-announcement-with-countdown-timer.php:202
-#: ../deal-or-announcement-with-countdown-timer.php:203
-#: ../deal-or-announcement-with-countdown-timer.php:208
-#: ../deal-or-announcement-with-countdown-timer.php:209
-#: ../deal-or-announcement-with-countdown-timer.php:220
-#: ../pages/content-management-add.php:87
-#: ../pages/content-management-edit.php:110
-#: ../pages/content-management-show.php:51 ../pages/widget-setting.php:4
+#: ../deal-or-announcement-with-countdown-timer.php:204
+#: ../deal-or-announcement-with-countdown-timer.php:205
+#: ../deal-or-announcement-with-countdown-timer.php:210
+#: ../deal-or-announcement-with-countdown-timer.php:211
+#: ../deal-or-announcement-with-countdown-timer.php:222
+#: ../pages/content-management-add.php:88
+#: ../pages/content-management-edit.php:111
+#: ../pages/content-management-show.php:52 ../pages/widget-setting.php:5
 msgid "Deal with countdown"
 msgstr ""
 
-#: ../pages/content-management-add.php:28
-#: ../pages/content-management-edit.php:56
+#: ../pages/content-management-add.php:29
+#: ../pages/content-management-edit.php:57
 msgid "Please enter the announcement."
 msgstr ""
 
-#: ../pages/content-management-add.php:50
+#: ../pages/content-management-add.php:51
 msgid "New details was successfully added."
 msgstr ""
 
-#: ../pages/content-management-add.php:79
-#: ../pages/content-management-edit.php:102
+#: ../pages/content-management-add.php:80
+#: ../pages/content-management-edit.php:103
 msgid "Click here to view the details"
 msgstr ""
 
-#: ../pages/content-management-add.php:89
+#: ../pages/content-management-add.php:90
 msgid "Add new details"
 msgstr ""
 
-#: ../pages/content-management-add.php:91
-#: ../pages/content-management-edit.php:114
-#: ../pages/content-management-show.php:73
-#: ../pages/content-management-show.php:82
+#: ../pages/content-management-add.php:92
+#: ../pages/content-management-edit.php:115
+#: ../pages/content-management-show.php:74
+#: ../pages/content-management-show.php:83
 msgid "Announcement"
 msgstr ""
 
-#: ../pages/content-management-add.php:93
-#: ../pages/content-management-edit.php:116
+#: ../pages/content-management-add.php:94
+#: ../pages/content-management-edit.php:117
 msgid "Please enter your announcement text."
 msgstr ""
 
-#: ../pages/content-management-add.php:95
-#: ../pages/content-management-edit.php:118
+#: ../pages/content-management-add.php:96
+#: ../pages/content-management-edit.php:119
 msgid "Display status"
 msgstr ""
 
-#: ../pages/content-management-add.php:101
-#: ../pages/content-management-edit.php:124
+#: ../pages/content-management-add.php:102
+#: ../pages/content-management-edit.php:125
 msgid "Do you want to show this announcement?"
 msgstr ""
 
-#: ../pages/content-management-add.php:103
-#: ../pages/content-management-edit.php:126
-#: ../pages/content-management-show.php:74
-#: ../pages/content-management-show.php:83
+#: ../pages/content-management-add.php:104
+#: ../pages/content-management-edit.php:127
+#: ../pages/content-management-show.php:75
+#: ../pages/content-management-show.php:84
 msgid "Expiration"
 msgstr ""
 
-#: ../pages/content-management-add.php:151
-#: ../pages/content-management-edit.php:192
+#: ../pages/content-management-add.php:152
+#: ../pages/content-management-edit.php:193
 msgid "Please select your expiration date."
-msgstr ""
-
-#: ../pages/content-management-add.php:156
-#: ../pages/content-management-edit.php:197 ../pages/widget-setting.php:75
-msgid "Submit"
 msgstr ""
 
 #: ../pages/content-management-add.php:157
 #: ../pages/content-management-edit.php:198 ../pages/widget-setting.php:76
-msgid "Cancel"
+msgid "Submit"
 msgstr ""
 
 #: ../pages/content-management-add.php:158
-#: ../pages/content-management-edit.php:199
-#: ../pages/content-management-show.php:138 ../pages/widget-setting.php:77
-msgid "Help"
+#: ../pages/content-management-edit.php:199 ../pages/widget-setting.php:77
+msgid "Cancel"
 msgstr ""
 
-#: ../pages/content-management-add.php:164
-#: ../pages/content-management-edit.php:205
-#: ../pages/content-management-show.php:147 ../pages/widget-setting.php:84
-msgid "Check official website for more information"
+#: ../pages/content-management-add.php:159
+#: ../pages/content-management-edit.php:200
+#: ../pages/content-management-show.php:139 ../pages/widget-setting.php:78
+msgid "Help"
 msgstr ""
 
 #: ../pages/content-management-add.php:165
 #: ../pages/content-management-edit.php:206
 #: ../pages/content-management-show.php:148 ../pages/widget-setting.php:85
+msgid "Check official website for more information"
+msgstr ""
+
+#: ../pages/content-management-add.php:166
+#: ../pages/content-management-edit.php:207
+#: ../pages/content-management-show.php:149 ../pages/widget-setting.php:86
 msgid "click here"
 msgstr ""
 
-#: ../pages/content-management-edit.php:16
-#: ../pages/content-management-show.php:21
+#: ../pages/content-management-edit.php:17
+#: ../pages/content-management-show.php:22
 msgid "Oops, selected details doesnt exist."
 msgstr ""
 
-#: ../pages/content-management-edit.php:85
+#: ../pages/content-management-edit.php:86
 msgid "Details was successfully updated."
 msgstr ""
 
-#: ../pages/content-management-edit.php:112
+#: ../pages/content-management-edit.php:113
 msgid "Update details"
 msgstr ""
 
-#: ../pages/content-management-show.php:39
+#: ../pages/content-management-show.php:40
 msgid "Selected record was successfully deleted."
 msgstr ""
 
-#: ../pages/content-management-show.php:52
-#: ../pages/content-management-show.php:136
+#: ../pages/content-management-show.php:53
+#: ../pages/content-management-show.php:137
 msgid "Add New"
-msgstr ""
-
-#: ../pages/content-management-show.php:75
-#: ../pages/content-management-show.php:84
-msgid "Display"
 msgstr ""
 
 #: ../pages/content-management-show.php:76
 #: ../pages/content-management-show.php:85
+msgid "Display"
+msgstr ""
+
+#: ../pages/content-management-show.php:77
+#: ../pages/content-management-show.php:86
 msgid "Id"
 msgstr ""
 
-#: ../pages/content-management-show.php:100
+#: ../pages/content-management-show.php:101
 msgid "Edit"
 msgstr ""
 
-#: ../pages/content-management-show.php:101
+#: ../pages/content-management-show.php:102
 msgid "Delete"
 msgstr ""
 
-#: ../pages/content-management-show.php:114
+#: ../pages/content-management-show.php:115
 msgid "No records available."
 msgstr ""
 
-#: ../pages/content-management-show.php:125
+#: ../pages/content-management-show.php:126
 msgid " &lt;&lt; "
 msgstr ""
 
-#: ../pages/content-management-show.php:126
+#: ../pages/content-management-show.php:127
 msgid " &gt;&gt; "
 msgstr ""
 
-#: ../pages/content-management-show.php:137
+#: ../pages/content-management-show.php:138
 msgid "Widget Setting"
 msgstr ""
 
-#: ../pages/content-management-show.php:141
+#: ../pages/content-management-show.php:142
 msgid "Plugin configuration option"
 msgstr ""
 
-#: ../pages/content-management-show.php:143
+#: ../pages/content-management-show.php:144
 msgid "Add directly in to the theme using PHP code."
 msgstr ""
 
-#: ../pages/content-management-show.php:144
+#: ../pages/content-management-show.php:145
 msgid "Drag and drop the widget to your sidebar."
 msgstr ""
 
-#: ../pages/widget-setting.php:5
+#: ../pages/widget-setting.php:6
 msgid "Settings"
 msgstr ""
 
-#: ../pages/widget-setting.php:32
+#: ../pages/widget-setting.php:33
 msgid "Details successfully updated."
 msgstr ""
 
-#: ../pages/widget-setting.php:40
+#: ../pages/widget-setting.php:41
 msgid "Enter widget title"
 msgstr ""
 
-#: ../pages/widget-setting.php:42
+#: ../pages/widget-setting.php:43
 msgid "Please enter your widget title."
 msgstr ""
 
-#: ../pages/widget-setting.php:44
+#: ../pages/widget-setting.php:45
 msgid "Timer caption"
 msgstr ""
 
-#: ../pages/widget-setting.php:46
+#: ../pages/widget-setting.php:47
 msgid "Please enter your timer caption."
 msgstr ""
 
-#: ../pages/widget-setting.php:48
+#: ../pages/widget-setting.php:49
 msgid "Timer color"
 msgstr ""
 
-#: ../pages/widget-setting.php:50
+#: ../pages/widget-setting.php:51
 msgid "Please enter your timer color."
 msgstr ""
 
-#: ../pages/widget-setting.php:52
+#: ../pages/widget-setting.php:53
 msgid "Text color"
 msgstr ""
 
-#: ../pages/widget-setting.php:54
+#: ../pages/widget-setting.php:55
 msgid "Please enter your text color."
 msgstr ""
 
-#: ../pages/widget-setting.php:56
+#: ../pages/widget-setting.php:57
 msgid "Timer alignment"
 msgstr ""
 
-#: ../pages/widget-setting.php:63
+#: ../pages/widget-setting.php:64
 msgid "Please select your timer alignment."
 msgstr ""
 
-#: ../pages/widget-setting.php:65
+#: ../pages/widget-setting.php:66
 msgid "Text alignment"
 msgstr ""
 
-#: ../pages/widget-setting.php:72
+#: ../pages/widget-setting.php:73
 msgid "Please select your text alignment."
 msgstr ""

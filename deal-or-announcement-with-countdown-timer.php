@@ -2,14 +2,16 @@
 /*
 Plugin Name: deal or announcement with countdown timer
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
-Description:  This plug-in will display the announcement or deal or offer with countdown timer.
-Author: Gopi.R
-Version: 8.2
+Description: This plugin will display your announcement with countdown timer.
+Author: Gopi Ramasamy
+Version: 8.3
 Author URI: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 Donate link: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
+
+if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); }
 
 global $wpdb, $wp_version;
 define("WP_G_Countdown_TABLE", $wpdb->prefix . "gCountdown");
