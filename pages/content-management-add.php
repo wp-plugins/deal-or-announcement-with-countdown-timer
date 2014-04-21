@@ -129,7 +129,7 @@ if ($gCounterror_found == FALSE && strlen($gCountsuccess) > 0)
 	  <select name="gCountyear" id="gCountyear">
 		<option value="">--Year--</option>
 		<?php 
-		for($yy = 2013; $yy <= 2010; $yy++)
+		for($yy = 2013; $yy <= 2020; $yy++)
 		{
 			?><option value='<?php echo $yy?>' ><?php echo $yy?></option><?php
 		}
