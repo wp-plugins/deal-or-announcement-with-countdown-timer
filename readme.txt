@@ -4,8 +4,8 @@ Donate link: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-c
 Author URI: http://www.gopiplus.com/
 Tags: deal, announcement, countdown, timer, widget, Offers
 Requires at least: 3.4
-Tested up to: 3.9
-Stable tag: 8.4
+Tested up to: 4.0
+Stable tag: 8.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -24,7 +24,7 @@ Deal or announcement with countdown WordPress plugin will display the announceme
 
 **Feature :**  
 
-*   Simple . 	
+*   Simple.	
 *   We can display our deal or offers or announcement with countdown.  	
 *   Style override system.  	
 *   Countdown timer.  	
@@ -33,19 +33,17 @@ Deal or announcement with countdown WordPress plugin will display the announceme
 
 == Installation ==
 
-**Installation Instruction & Configuration**  
-
 [See Installation Instruction and Configuration information and Demo](http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/)
 
 == Frequently Asked Questions ==
 
-**1. Can I display more Deal at same time?**
+1. Can I display more Deal at same time?
 
-**2. Can I customize the color and align style?**
+2. Can I customize the color and align style?
 
-**3. why it show 'No data available in announcement!' on front end?**
+3. why it show 'No data available in announcement!' on front end?
 
-**4. why it show 'Time Out!' on timer area?**
+4. why it show 'Time Out!' on timer area?
 
 [Answer](http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/)
 
@@ -58,6 +56,9 @@ Deal or announcement with countdown WordPress plugin will display the announceme
 3. Widget Screen. http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 
 == Upgrade Notice ==
+
+= 8.5 =
+1. Tested up to 4.0
 
 = 8.4 =
 Plugin version 8.3 bug fixed
@@ -103,6 +104,9 @@ Date option enabled
 First version
 
 == Changelog ==
+
+= 8.5 =
+1. Tested up to 4.0
 
 = 8.4 =
 Plugin version 8.3 bug fixed

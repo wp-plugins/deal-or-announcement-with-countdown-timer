@@ -4,7 +4,7 @@ Plugin Name: deal or announcement with countdown timer
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 Description: This plugin will display your announcement with countdown timer.
 Author: Gopi Ramasamy
-Version: 8.4
+Version: 8.5
 Author URI: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 Donate link: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 License: GPLv2 or later
@@ -102,7 +102,7 @@ function deal_or_announcement_with_countdown_timer_install()
 			
 		$sSql = "INSERT INTO `". WP_G_Countdown_TABLE . "` (`gCount` , `gCountmonth` ,`gCountdate` ,`gCountyear` ,`gCounthour` ,`gCountzoon` ,`gCountdisplay`) VALUES ";
 		$sSql = $sSql . "('Lorem Ipsum is simply dummy text of the printing and typesetting industry.', ";
-		$sSql = $sSql . "'12', '25', '2014', '12', 'PM', 'YES');";
+		$sSql = $sSql . "'01', '01', '2015', '12', 'AM', 'YES');";
 		$wpdb->query($sSql);
 	}
 
