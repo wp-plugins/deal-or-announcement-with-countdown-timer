@@ -4,7 +4,7 @@ Plugin Name: deal or announcement with countdown timer
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 Description: This plugin will display your announcement with countdown timer.
 Author: Gopi Ramasamy
-Version: 8.5
+Version: 8.6
 Author URI: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 Donate link: http://www.gopiplus.com/work/2010/07/18/deal-or-announcement-with-countdown-timer/
 License: GPLv2 or later
