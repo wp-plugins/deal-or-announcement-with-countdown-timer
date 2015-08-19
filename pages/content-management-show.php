@@ -4,6 +4,7 @@
 if (isset($_POST['frm_gCountdisplay']) && $_POST['frm_gCountdisplay'] == 'yes')
 {
 	$did = isset($_GET['did']) ? $_GET['did'] : '0';
+	if(!is_numeric($did)) { die('<p>Are you sure you want to do this?</p>'); }
 	
 	$gCountsuccess = '';
 	$gCountsuccess_msg = FALSE;
@@ -70,7 +71,7 @@ if (isset($_POST['frm_gCountdisplay']) && $_POST['frm_gCountdisplay'] == 'yes')
       <table width="100%" class="widefat" id="straymanage">
         <thead>
           <tr>
-            <th class="check-column" scope="col"><input type="checkbox" name="gCountgroup_item[]" /></th>
+            <th class="check-column" scope="col" style="padding: 8px 2px;"><input type="checkbox" name="gCountgroup_item[]" /></th>
 			<th scope="col"><?php _e('Announcement', 'deal-with-countdown'); ?></th>
             <th scope="col"><?php _e('Expiration', 'deal-with-countdown'); ?></th>
 			<th scope="col"><?php _e('Display', 'deal-with-countdown'); ?></th>
@@ -79,7 +80,7 @@ if (isset($_POST['frm_gCountdisplay']) && $_POST['frm_gCountdisplay'] == 'yes')
         </thead>
 		<tfoot>
           <tr>
-            <th class="check-column" scope="col"><input type="checkbox" name="gCountgroup_item[]" /></th>
+            <th class="check-column" scope="col" style="padding: 8px 2px;"><input type="checkbox" name="gCountgroup_item[]" /></th>
 			<th scope="col"><?php _e('Announcement', 'deal-with-countdown'); ?></th>
             <th scope="col"><?php _e('Expiration', 'deal-with-countdown'); ?></th>
 			<th scope="col"><?php _e('Display', 'deal-with-countdown'); ?></th>
